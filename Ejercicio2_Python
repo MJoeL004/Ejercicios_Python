@@ -1,0 +1,38 @@
+# =========================================
+# EJERCICIO 2 — Mochila y MochilaEscolar
+# =========================================
+
+# Clase padre
+class Mochila:
+
+    # Constructor
+    def __init__(self, color, tamaño, marca):
+
+        # Atributos
+        self.color = color
+        self.tamaño = tamaño
+        self.marca = marca
+
+    # Método guardar
+    def guardar(self):
+        print("Objeto guardado")
+
+    # Método cargar
+    def cargar(self):
+        print("La mochila está cargada")
+
+
+# Clase hija
+class MochilaEscolar(Mochila):
+    pass
+
+
+# Crear objeto
+mochila1 = MochilaEscolar("Roja", "Mediana", "Nike")
+
+# Mostrar atributo
+print(mochila1.marca)
+
+# Ejecutar métodos
+mochila1.guardar()
+mochila1.cargar() 
