@@ -1,0 +1,35 @@
+# ========================================
+# EJERCICIO 4 — Refrigeradora y RefrigeradoraInteligente
+# ========================================
+# Clase Padre 
+class refrigeradora:
+
+# Constructor 
+def __init__(self,marca,capacidad,color)
+
+# Atributos 
+ self.marca = marca
+ self.capacidad = capacidad
+ self.color = color
+
+# Metodo enfriar 
+def enfriar(self)
+    print("La refrigeradora esta enfriando")
+
+# Metodo Abrir 
+Def abrir(self)
+    Print("Puerta abierta")
+
+# Clase hija 
+class refrigeradoraInteligente(Refrigeradora):
+      pass
+
+# Crear objeto
+refri1= refrigeradoraInteligente("Mabe",300,"Negra")
+
+# Mostrar Atributo
+    Print(refri1.capacidad)
+
+# Ejecutar metodos 
+refri1.enfriar()
+refi1.abrir()
