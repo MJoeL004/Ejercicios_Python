@@ -1,38 +1,33 @@
-# =========================================
-# EJERCICIO 2 — Mochila y MochilaEscolar
-# =========================================
-
 # Clase padre
-class Mochila:
+class Vehiculo:
 
-    # Constructor
-    def __init__(self, color, tamaño, marca):
-
-        # Atributos
-        self.color = color
-        self.tamaño = tamaño
+    # Constructor de la clase padre
+    def __init__(self, marca, color):
         self.marca = marca
-
-    # Método guardar
-    def guardar(self):
-        print("Objeto guardado")
-
-    # Método cargar
-    def cargar(self):
-        print("La mochila está cargada")
+        self.color = color
 
 
-# Clase hija
-class MochilaEscolar(Mochila):
-    pass
+# Clase hija que hereda de Vehiculo
+class Carro(Vehiculo):
 
+    # Constructor de la clase hija
+    def __init__(self, marca, color, modelo):
 
-# Crear objeto
-mochila1 = MochilaEscolar("Roja", "Mediana", "Nike")
+        # Hereda los atributos de la clase padre
+        super().__init__(marca, color)
 
-# Mostrar atributo
-print(mochila1.marca)
+        # Nuevo atributo de la clase hija
+        self.modelo = modelo
 
-# Ejecutar métodos
-mochila1.guardar()
-mochila1.cargar() 
+    # Método o acción
+    def mostrar(self):
+        print(f"El Carro es {self.marca}, Su color es {self.color}, El modelo es {self.modelo}")
+        print("La marca del carro es", self.marca,"El color del carro es", self.color, ", Su modelo es", self.modelo)
+
+# FUERA DE LA CLASE
+
+# Instanciar el objeto
+carro1 = Carro("Toyota", "Rojo", "Corolla")
+
+# Llamar al método
+carro1.mostrar()
