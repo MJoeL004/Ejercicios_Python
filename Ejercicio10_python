@@ -1,0 +1,23 @@
+#Ejemplo de herencia en Python
+class Electrodomestico:
+
+    def __init__(self, marca, voltaje):
+        self.marca = marca
+        self.voltaje = voltaje
+
+#Ingreso de la herencia 
+class Refrigeradora(Electrodomestico):
+
+         # Constructor
+    def __init__(self, voltaje, marca, capacidad):
+        super().__init__(marca, voltaje)
+        self.capacidad = capacidad
+         # Método o Acciones
+    def enfriar(self):
+        print(f"La refrigeradora es marca {self.marca}, voltaje {self.voltaje} y capacidad {self.capacidad}")
+        print("La refrigeradora es marca", self.marca,"Y el voltaje es", self.voltaje, "Y la capacidad es", self.capacidad)
+
+#Fuera de la clase 
+#Instanciar la clase 
+refri1 = Refrigeradora(110, "Electrolux", 300)
+refri1.enfriar()
