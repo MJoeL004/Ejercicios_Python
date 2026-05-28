@@ -1,0 +1,24 @@
+# Ejemplo de herencia en Python
+class Deporte:
+
+    def __init__(self, nombre, jugadores):
+        self.nombre = nombre
+        self.jugadores = jugadores
+
+#Ingreso de la herencia 
+class Futbol(Deporte):
+
+# Constructor
+    def __init__(self, jugadores, nombre, liga):
+        super().__init__(nombre, jugadores)
+        self.liga = liga
+
+# Método o Acciones
+    def jugar(self):
+        print(f"El deporte es {self.nombre}, juegan {self.jugadores} jugadores y pertenece a {self.liga}")
+        print("El deporte es", self.nombre, "Y juegan", self.jugadores, "jugadores en", self.liga)
+
+#Fuera de la clase 
+#Instanciar la clase   
+fut1 = Futbol(11, "Fútbol", "Liga Pro")
+fut1.jugar()
