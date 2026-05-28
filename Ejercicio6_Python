@@ -1,0 +1,26 @@
+#Ejemplo de herencia en Python
+class Empleado:
+
+    def __init__(self, nombre, sueldo):
+        self.nombre = nombre
+        self.sueldo = sueldo
+
+#Ingreso de la herencia
+class Doctor(Empleado):
+
+# Constructor
+    def __init__(self, sueldo, nombre, especialidad):
+        super().__init__(nombre, sueldo)
+        self.especialidad = especialidad
+
+# Método o Acciones
+    def atender(self):
+        print(f"El doctor se llama {self.nombre}, gana {self.sueldo} y su especialidad es {self.especialidad}")
+        print("El doctor se llama", self.nombre,
+              "Y gana", self.sueldo, "Y su especialidad es", self.especialidad)
+
+
+#Fuera de la clase 
+#Instanciar la clase 
+doc1 = Doctor(2500, "Ana", "Pediatría")
+doc1.atender()
