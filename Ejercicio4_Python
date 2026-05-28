@@ -15,8 +15,7 @@ class Novela(Libro):
 
     def leer(self):
         print(f"El libro es {self.titulo}, el autor es {self.autor} y el género es {self.genero}")
-        print("El libro es", self.titulo,
-              "Su autor es", self.autor, "Y el género es", self.genero)
+        print("El libro es", self.titulo, "Su autor es", self.autor, "Y el género es", self.genero)
 
 # Fuera de la clase 
 # Instanciar la clase 
