@@ -1,0 +1,24 @@
+#Ejemplo de herencia en Python
+class TransporteAereo:
+
+    def __init__(self, empresa, capacidad):
+        self.empresa = empresa
+        self.capacidad = capacidad
+
+#Ingreso de la herencia 
+class Avion(TransporteAereo):
+
+    def __init__(self, capacidad, empresa, modelo):
+        super().__init__(empresa, capacidad)
+        self.modelo = modelo
+
+# Método o Acciones
+    def despegar(self):
+        print(f"El avión pertenece a la linea {self.empresa}, capacidad {self.capacidad} y modelo {self.modelo}")
+        print("El avión pertenece a la linea", self.empresa,
+              "Y tiene capacidad", self.capacidad, "Y el modelo es", self.modelo)
+
+#Fuera de la clase 
+#Instanciar la clase 
+avion1 = Avion(180, "Avianca", "Airbus A320")
+avion1.despegar()
