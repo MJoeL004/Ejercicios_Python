@@ -1,0 +1,26 @@
+# Ejemplo de herencia en Python
+class Instrumento:
+
+    def __init__(self, nombre, material):
+        self.nombre = nombre
+        self.material = material
+
+# Ingreso de la herencia
+class Guitarra(Instrumento):
+
+# Constructor
+    def __init__(self, material, nombre, cuerdas):
+        super().__init__(nombre, material)
+        self.cuerdas = cuerdas
+
+# Método o Acciones
+    def tocar(self):
+        print(f"La guitarra es {self.nombre}, Su material es de  {self.material} y tiene {self.cuerdas} cuerdas")
+        print("La guitarra es", self.nombre,
+              "Es hecha de", self.material, "Y tiene", self.cuerdas, "cuerdas")
+
+
+#Fuera de la clase 
+#Instanciar la clase 
+gui1 = Guitarra("Madera", "Electrica", 6)
+gui1.tocar()
