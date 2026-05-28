@@ -1,42 +1,22 @@
-# =========================================
-# EJERCICIO 1 — Mesa y MesaDeMadera
-# =========================================
+# Ejercicio 1python
+class Animal:
 
-# Clase padre
-class Mesa:
-
-    # Constructor con 3 atributos
-    def __init__(self, color, material, tamaño):
-
-        # Atributo color
-        self.color = color
-
-        # Atributo material
-        self.material = material
-
-        # Atributo tamaño
-        self.tamaño = tamaño
-
-    # Método 1
-    def sostener(self):
-        print("La mesa sostiene objetos")
-
-    # Método 2
-    def limpiar(self):
-        print("La mesa está limpia")
+    def __init__(self, nombre, raza):
+        self.nombre = nombre
+        self.raza = raza
 
 
-# Clase hija que hereda de Mesa
-class MesaDeMadera(Mesa):
-    pass
+class Perro(Animal):
+
+    def __init__(self, raza, nombre, edad):
+        super().__init__(nombre, raza)
+        self.edad = edad
+
+    def ladrar(self):
+        print(f"El perro se llama {self.nombre}, la raza es {self.raza} y tiene {self.edad} años")
+        print("El perro se llama", self.nombre,
+              "Y la raza es", self.raza, "Y tiene", self.edad, "años")
 
 
-# Crear objeto
-mesa1 = MesaDeMadera("Café", "Madera", "Grande")
-
-# Mostrar atributo
-print(mesa1.material)
-
-# Llamar métodos
-mesa1.sostener()
-mesa1.limpiar()
+perro1 = Perro("Labrador", "Max", 4)
+perro1.ladrar()
