@@ -1,0 +1,24 @@
+# Ejemplo de herencia en Python
+class Libro:
+
+    def __init__(self, titulo, autor):
+        self.titulo = titulo
+        self.autor = autor
+
+# Ingreso de la herencia  
+class Novela(Libro):
+
+# Constructor
+    def __init__(self, autor, titulo, genero):
+        super().__init__(titulo, autor)
+        self.genero = genero
+
+    def leer(self):
+        print(f"El libro es {self.titulo}, el autor es {self.autor} y el género es {self.genero}")
+        print("El libro es", self.titulo,
+              "Su autor es", self.autor, "Y el género es", self.genero)
+
+# Fuera de la clase 
+# Instanciar la clase 
+novela1 = Novela("Gabriel García Márquez", "Cien Años de Soledad", "Drama")
+novela1.leer()
