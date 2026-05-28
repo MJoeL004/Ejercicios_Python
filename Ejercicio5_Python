@@ -1,0 +1,24 @@
+# Ejemplo de herencia en Python
+class Telefono:
+
+    def __init__(self, marca, color):
+        self.marca = marca
+        self.color = color
+
+#Ingreso de la herencia
+class Smartphone(Telefono):
+
+ # Constructor
+    def __init__(self, color, marca, memoria):
+        super().__init__(marca, color)
+        self.memoria = memoria
+
+    def llamar(self):
+        print(f"El teléfono es color {self.color}, Marca {self.marca} y memoria {self.memoria}GB")
+        print("El teléfono es color", self.color,
+              "La marca es", self.marca, "La memoria es de", self.memoria, "GB")
+
+#Fuera de la clase 
+#Instanciar la clase 
+cel1 = Smartphone("Negro", "Samsung", 256)
+cel1.llamar()
