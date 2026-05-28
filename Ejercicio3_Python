@@ -1,35 +1,26 @@
-# ========================================
-# EJERCICIO 4 — Refrigeradora y RefrigeradoraInteligente
-# ========================================
-# Clase Padre 
-class refrigeradora:
+#Ejemplo de herencia en Python
+class computer:
 
-# Constructor 
-def __init__(self,marca,capacidad,color)
+    def __init__(self, marca, color):
+     self.marca = marca            
+     self.color = color
+  
+#Ingreso de la herencia   
+class Ordenador (computer):
+    # Constructor
+    
+    def __init__(self, color, marca, modelo):
+      super().__init__(marca, color)
+      self.modelo = modelo
+    # Método o Acciones
+    def encender(self):
+        print(f"El color del computador es {self.color}, la marca es {self.marca} y el modelo es {self.modelo}")
+        print("El color del computador es", self.color,
+              "Y la marca es", self.marca, "Y el modelo es", self. modelo)  
+        
+#Fuera de la clase 
+#Instanciar la clase 
+laptop = Ordenador("Verde", "Hp", "thinkpad")
+laptop.encender()   
 
-# Atributos 
- self.marca = marca
- self.capacidad = capacidad
- self.color = color
 
-# Metodo enfriar 
-def enfriar(self)
-    print("La refrigeradora esta enfriando")
-
-# Metodo Abrir 
-Def abrir(self)
-    Print("Puerta abierta")
-
-# Clase hija 
-class refrigeradoraInteligente(Refrigeradora):
-      pass
-
-# Crear objeto
-refri1= refrigeradoraInteligente("Mabe",300,"Negra")
-
-# Mostrar Atributo
-    Print(refri1.capacidad)
-
-# Ejecutar metodos 
-refri1.enfriar()
-refi1.abrir()
