@@ -1,0 +1,35 @@
+# Ejemplo 
+# Abstraccion
+class TransportePublico:
+
+    def __init__(self, capacidad):
+        self.__capacidad = capacidad
+
+    def get_capacidad(self):
+        return self.__capacidad
+
+    def transportar(self):
+        pass
+
+
+# Herencia
+class Bus(TransportePublico):
+
+    def transportar(self):
+        print("El bus transporta pasajeros por la ciudad.")
+
+
+class Metro(TransportePublico):
+
+    def transportar(self):
+        print("El metro transporta pasajeros bajo tierra.")
+
+
+# Objetos
+bus = Bus(50)
+metro = Metro(300)
+
+# Polimorfismo
+for transporte in [bus, metro]:
+    print("Capacidad:", transporte.get_capacidad())
+    transporte.transportar()
