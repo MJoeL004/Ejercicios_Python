@@ -1,0 +1,35 @@
+# Ejercicio
+# Abstraccion 
+class Dispositivo:
+
+    def __init__(self, modelo):
+        self.__modelo = modelo
+
+    def get_modelo(self):
+        return self.__modelo
+
+    def iniciar(self):
+        pass
+
+
+# Herencia
+class Celular(Dispositivo):
+
+    def iniciar(self):
+        print("El celular está encendiendo.")
+
+
+class Laptop(Dispositivo):
+
+    def iniciar(self):
+        print("La laptop está arrancando el sistema.")
+
+
+# Objetos
+cel = Celular("Samsung A54")
+lap = Laptop("Dell Inspiron")
+
+# Polimorfismo
+for dispositivo in [cel, lap]:
+    print(dispositivo.get_modelo())
+    dispositivo.iniciar()
