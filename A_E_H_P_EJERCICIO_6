@@ -1,0 +1,44 @@
+# Ejemplo 
+# Abstraccion 
+
+class Vehiculo:
+
+    def __init__(self, marca):
+        # ENCAPSULAMIENTO
+        # Atributo privado
+        self.__marca = marca
+
+    # Método para acceder al atributo privado
+    def get_marca(self):
+        return self.__marca
+
+    # Método que será sobrescrito por las clases hijas
+    def mover(self):
+        pass
+
+
+# HERENCIA
+class Auto(Vehiculo):
+
+    # POLIMORFISMO
+    def mover(self):
+        print("El auto está circulando por la carretera.")
+
+
+class Motocicleta(Vehiculo):
+
+    # POLIMORFISMO
+    def mover(self):
+        print("La motocicleta está avanzando rápidamente.")
+
+
+# Creación de objetos
+auto = Auto("Toyota")
+moto = Motocicleta("Yamaha")
+
+# Uso de polimorfismo
+vehiculos = [auto, moto]
+
+for v in vehiculos:
+    print("Marca:", v.get_marca())
+    v.mover()
