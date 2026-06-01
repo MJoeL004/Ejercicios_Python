@@ -1,0 +1,35 @@
+# Ejemplo
+# Abstracción
+class Animal:
+
+    def __init__(self, nombre):
+        self.__nombre = nombre
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def hacer_sonido(self):
+        pass
+
+
+# Herencia
+class Perro(Animal):
+
+    def hacer_sonido(self):
+        print("Guau Guau")
+
+
+class Gato(Animal):
+
+    def hacer_sonido(self):
+        print("Miau Miau")
+
+
+# Objetos
+perro = Perro("Firulais")
+gato = Gato("Michi")
+
+# Polimorfismo
+for animal in [perro, gato]:
+    print(animal.get_nombre())
+    animal.hacer_sonido()
