@@ -1,0 +1,35 @@
+# Ejemplo 
+# Abstracción
+class Instrumento:
+
+    def __init__(self, nombre):
+        self.__nombre = nombre
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def tocar(self):
+        pass
+
+
+# Herencia
+class Guitarra(Instrumento):
+
+    def tocar(self):
+        print("Sonido de guitarra.")
+
+
+class Piano(Instrumento):
+
+    def tocar(self):
+        print("Sonido de piano.")
+
+
+# Objetos
+guitarra = Guitarra("Guitarra acústica")
+piano = Piano("Piano de cola")
+
+# Polimorfismo
+for instrumento in [guitarra, piano]:
+    print(instrumento.get_nombre())
+    instrumento.tocar()
