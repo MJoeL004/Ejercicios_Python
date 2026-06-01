@@ -1,0 +1,39 @@
+# Ejercicio
+# Clase padre
+class Empleado:
+
+    def __init__(self, nombre, salario):
+        self.__nombre = nombre
+        self.__salario = salario
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def calcular_bono(self):
+        pass
+
+
+# Herencia
+class Programador(Empleado):
+
+    def calcular_bono(self):
+        return 500
+
+
+class Diseñador(Empleado):
+
+    def calcular_bono(self):
+        return 300
+
+
+# Objetos
+emp1 = Programador("Carlos", 1500)
+emp2 = Diseñador("Ana", 1200)
+
+# Polimorfismo
+for empleado in [emp1, emp2]:
+    print(
+        empleado.get_nombre(),
+        "recibe bono de",
+        empleado.calcular_bono()
+    )
