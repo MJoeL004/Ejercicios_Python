@@ -1,0 +1,164 @@
+from flask import Flask, render_template_string
+from datetime import datetime
+import random
+
+app = Flask(__name__)
+
+MENSAJES = [
+    "Sistema iniciado",
+    "Conexión establecida",
+    "Acceso autorizado",
+    "Analizando datos...",
+    "Procesando información...",
+    "Servidor activo",
+    "Bienvenido al sistema"
+]
+
+@app.route("/")
+def inicio():
+
+    mensaje = random.choice(MENSAJES)
+    hora = datetime.now().strftime("%H:%M:%S")
+
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Matriz Digital</title>
+
+        <style>
+            body{
+                margin:0;
+                background:black;
+                color:#00ff00;
+                font-family:Consolas, monospace;
+                overflow:hidden;
+            }
+
+            canvas{
+                position:fixed;
+                top:0;
+                left:0;
+                z-index:-1;
+            }
+
+            .panel{
+                text-align:center;
+                margin-top:120px;
+            }
+
+            h1{
+                font-size:60px;
+                text-shadow:0 0 15px #00ff00;
+            }
+
+            .caja{
+                border:2px solid #00ff00;
+                width:500px;
+                margin:auto;
+                padding:20px;
+                box-shadow:0 0 20px #00ff00;
+            }
+
+            button{
+                background:black;
+                color:#00ff00;
+                border:2px solid #00ff00;
+                padding:10px 20px;
+                cursor:pointer;
+                font-size:18px;
+            }
+
+            button:hover{
+                background:#00ff00;
+                color:black;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <canvas id="matrix"></canvas>
+
+        <div class="panel">
+
+            <h1>MATRIX SYSTEM</h1>
+
+            <div class="caja">
+                <h2>{{mensaje}}</h2>
+                <p>Hora del servidor: {{hora}}</p>
+
+                <button onclick="location.reload()">
+                    Generar nuevo mensaje
+                </button>
+            </div>
+
+        </div>
+
+        <script>
+
+        const canvas = document.getElementById("matrix");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letras =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+        const fontSize = 14;
+        const columns = canvas.width/fontSize;
+
+        const drops = [];
+
+        for(let x=0;x<columns;x++){
+            drops[x]=1;
+        }
+
+        function draw(){
+
+            ctx.fillStyle="rgba(0,0,0,0.05)";
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+
+            ctx.fillStyle="#00ff00";
+            ctx.font=fontSize+"px monospace";
+
+            for(let i=0;i<drops.length;i++){
+
+                const text=
+                letras[Math.floor(Math.random()*letras.length)];
+
+                ctx.fillText(
+                    text,
+                    i*fontSize,
+                    drops[i]*fontSize
+                );
+
+                if(
+                    drops[i]*fontSize >
+                    canvas.height &&
+                    Math.random()>0.975
+                ){
+                    drops[i]=0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw,33);
+
+        </script>
+
+    </body>
+    </html>
+    """
+
+    return render_template_string(
+        html,
+        mensaje=mensaje,
+        hora=hora
+    )
+
+if __name__ == "__main__":
+    app.run(debug=True)
