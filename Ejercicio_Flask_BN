@@ -1,0 +1,85 @@
+from flask import Flask, render_template_string
+import os
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return """
+    <h1>Bienvenido</h1>
+    <a href="/galeria">Ir a la Galería</a>
+    """
+
+@app.route("/galeria")
+def galeria():
+
+    carpeta = os.path.join(app.static_folder, "imagenes")
+
+    imagenes = []
+
+    if os.path.exists(carpeta):
+        imagenes = [
+            archivo for archivo in os.listdir(carpeta)
+            if archivo.lower().endswith(
+                (".jpg", ".jpeg", ".png", ".gif", ".webp")
+            )
+        ]
+
+    html = """
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Galería Virtual</title>
+        <style>
+            body{
+                background:black;
+                color:white;
+                font-family:Arial;
+                text-align:center;
+                margin:0;
+                padding:20px;
+            }
+
+            .galeria{
+                display:flex;
+                flex-wrap:wrap;
+                justify-content:center;
+                gap:20px;
+            }
+
+            img{
+                width:300px;
+                height:200px;
+                object-fit:cover;
+                border:3px solid white;
+                border-radius:10px;
+            }
+
+            a{
+                color:white;
+                text-decoration:none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Galería Virtual</h1>
+
+        <div class="galeria">
+            {% for imagen in imagenes %}
+                <img src="/static/imagenes/{{ imagen }}">
+            {% endfor %}
+        </div>
+
+        <br>
+        <a href="/">Volver al inicio</a>
+
+    </body>
+    </html>
+    """
+
+    return render_template_string(html, imagenes=imagenes)
+
+if __name__ == "__main__":
+    app.run(debug=True)
